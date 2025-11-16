@@ -8,7 +8,7 @@ file:d:\catatan\notes\Laravel\Vibe November 2025\kaido-starter-kit\docs\plan\02-
 
 ## Dependencies
 
--   Filament v3
+-   Filament v4
 -   `bezhansalleh/filament-shield`
 -   Spatie Permission (bundled by Shield)
 
