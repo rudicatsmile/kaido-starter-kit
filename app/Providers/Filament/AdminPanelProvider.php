@@ -11,6 +11,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Navigation\NavigationItem;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
@@ -47,6 +48,14 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
+            ])
+            ->navigationItems([
+                NavigationItem::make('Log Viewer')
+                    ->group('Resource')
+                    ->icon('heroicon-o-document-text')
+                    ->url('/admin/log-viewer')
+                    ->isActiveWhen(fn() => request()->is('admin/log-viewer*'))
+                    ->visible(fn() => optional(auth()->user())->hasRole('super_admin')),
             ])
             ->middleware([
                 EncryptCookies::class,
