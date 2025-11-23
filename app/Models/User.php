@@ -13,11 +13,13 @@ use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class User extends Authenticatable implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles, SoftDeletes, ImpersonateTrait, InteractsWithMedia;
+    use HasFactory, Notifiable, HasRoles, SoftDeletes, ImpersonateTrait, InteractsWithMedia, LogsActivity;
 
     public function canImpersonate(): bool
     {
@@ -52,6 +54,14 @@ class User extends Authenticatable implements HasMedia
             ->format('webp')
             ->withResponsiveImages()
             ->queued();
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('user')
+            ->logFillable()
+            ->logOnlyDirty();
     }
 
     /**

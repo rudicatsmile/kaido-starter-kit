@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'title',
@@ -45,12 +47,20 @@ class Post extends Model
         $slug = $base;
         $i = 1;
         while (static::query()
-            ->when($ignoreId, fn ($q) => $q->whereKeyNot($ignoreId))
+            ->when($ignoreId, fn($q) => $q->whereKeyNot($ignoreId))
             ->where('slug', $slug)
-            ->exists()) {
-            $slug = $base.'-'.$i++;
+            ->exists()
+        ) {
+            $slug = $base . '-' . $i++;
         }
         return $slug;
     }
-}
 
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('post')
+            ->logFillable()
+            ->logOnlyDirty();
+    }
+}

@@ -52,6 +52,10 @@ class UsersTable
                 Impersonate::make()
                     ->guard('web')
                     ->redirectTo('/'),
+                TableAction::make('activities')
+                    ->label('Activities')
+                    ->visible(fn(): bool => optional(auth()->user())->hasRole('super_admin'))
+                    ->url(fn(User $record): string => \App\Filament\Resources\Users\UserResource::getUrl('activities', ['record' => $record])),
                 TableAction::make('attachments')
                     ->label('Attachments')
                     ->visible(fn(User $record): bool => $record->getMedia('attachments')->isNotEmpty())

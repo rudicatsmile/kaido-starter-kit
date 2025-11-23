@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\Action as TableAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\CreateAction;
@@ -58,6 +59,10 @@ class PostsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                TableAction::make('activities')
+                    ->label('Activities')
+                    ->visible(fn(): bool => optional(auth()->user())->hasRole('super_admin'))
+                    ->url(fn($record): string => \App\Filament\Resources\Posts\PostResource::getUrl('activities', ['record' => $record])),
             ])
             ->headerActions([
                 CreateAction::make(),
@@ -71,4 +76,3 @@ class PostsTable
             ]);
     }
 }
-

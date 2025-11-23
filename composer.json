@@ -16,6 +16,8 @@
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^2.10.1",
+        "pxlrbt/filament-activity-log": "^2.0",
+        "spatie/laravel-activitylog": "^4.10",
         "spatie/laravel-medialibrary": "11.17",
         "stechstudio/filament-impersonate": "^4.0"
     },
