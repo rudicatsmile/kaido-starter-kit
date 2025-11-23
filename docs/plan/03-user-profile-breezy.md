@@ -8,7 +8,7 @@ file:d:\catatan\notes\Laravel\Vibe November 2025\kaido-starter-kit\docs\plan\03-
 
 ## Dependencies
 
--   Filament v3
+-   Filament v4
 -   `jeffgreco13/filament-breezy`
 -   Optional: Laravel email verification, 2FA
 
