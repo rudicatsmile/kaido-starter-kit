@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\PermissionController;
+use App\Http\Controllers\API\PostController;
 
 Route::middleware(['auth', 'role:super_admin'])->group(function () {
     Route::get('/roles', [RoleController::class, 'index']);
@@ -18,3 +19,10 @@ Route::middleware(['auth', 'role:super_admin'])->group(function () {
     Route::delete('/permissions/{permission}', [PermissionController::class, 'destroy']);
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/posts', [PostController::class, 'index']);
+    Route::get('/posts/{post}', [PostController::class, 'show']);
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::put('/posts/{post}', [PostController::class, 'update']);
+    Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+});
