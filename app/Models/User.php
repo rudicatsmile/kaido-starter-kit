@@ -50,6 +50,7 @@ class User extends Authenticatable implements HasMedia
             ->width(160)
             ->height(160)
             ->format('webp')
+            ->withResponsiveImages()
             ->nonQueued();
     }
 
