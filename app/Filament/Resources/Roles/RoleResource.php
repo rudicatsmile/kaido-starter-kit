@@ -13,9 +13,11 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Spatie\Permission\Models\Role;
+use BezhanSalleh\FilamentShield\Traits\HasShieldFormComponents;
 
 class RoleResource extends Resource
 {
+    use HasShieldFormComponents;
     protected static ?string $model = Role::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
@@ -46,4 +48,3 @@ class RoleResource extends Resource
         ];
     }
 }
-

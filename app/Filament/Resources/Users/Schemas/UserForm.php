@@ -7,6 +7,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class UserForm
 {
@@ -25,6 +26,24 @@ class UserForm
                                     ->label('Email')
                                     ->email()
                                     ->required(),
+                            ]),
+                        Grid::make(2)
+                            ->schema([
+                                SpatieMediaLibraryFileUpload::make('avatar')
+                                    ->label('Avatar')
+                                    ->collection('avatar')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->maxSize(2 * 1024)
+                                    ->columnSpan(1),
+                                SpatieMediaLibraryFileUpload::make('attachments')
+                                    ->label('Attachments')
+                                    ->collection('attachments')
+                                    ->multiple()
+                                    ->reorderable()
+                                    ->maxFiles(5)
+                                    ->maxSize(5 * 1024)
+                                    ->columnSpan(1),
                             ]),
                         Grid::make(2)
                             ->schema([

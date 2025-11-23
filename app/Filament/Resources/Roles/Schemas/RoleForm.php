@@ -4,9 +4,11 @@ namespace App\Filament\Resources\Roles\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
+use App\Filament\Resources\Roles\RoleResource as RolesRoleResource;
+use BezhanSalleh\FilamentShield\Support\Utils;
+use Filament\Facades\Filament;
 
 class RoleForm
 {
@@ -22,13 +24,14 @@ class RoleForm
                                     ->label('Name')
                                     ->required()
                                     ->unique(ignoreRecord: true),
+                                TextInput::make('guard_name')
+                                    ->label('Guard')
+                                    ->default(Utils::getFilamentAuthGuard())
+                                    ->nullable(),
                             ]),
-                        Select::make('permissions')
-                            ->label('Permissions')
-                            ->relationship('permissions', 'name')
-                            ->multiple()
-                            ->preload(),
+                        RolesRoleResource::getSelectAllFormComponent(),
                     ]),
+                RolesRoleResource::getShieldFormComponents(),
             ]);
     }
 }

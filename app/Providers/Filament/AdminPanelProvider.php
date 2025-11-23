@@ -60,7 +60,12 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugins([
-                FilamentShieldPlugin::make(),
+                FilamentShieldPlugin::make()
+                    ->localizePermissionLabels(true)
+                    ->simpleResourcePermissionView(false)
+                    ->navigationGroup('Security')
+                    ->gridColumns(1)
+                    ->resourceCheckboxListColumns(['sm' => 2, 'lg' => 4]),
                 BreezyCore::make()
                     ->myProfile(
                         shouldRegisterUserMenu: true,

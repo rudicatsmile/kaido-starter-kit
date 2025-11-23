@@ -12,6 +12,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
 use STS\FilamentImpersonate\Actions\Impersonate;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class UsersTable
 {
@@ -19,6 +20,11 @@ class UsersTable
     {
         return $table
             ->columns([
+                SpatieMediaLibraryImageColumn::make('avatar')
+                    ->label('Avatar')
+                    ->collection('avatar')
+                    ->conversion('thumb')
+                    ->circular(),
                 TextColumn::make('name')
                     ->label('Name')
                     ->searchable()

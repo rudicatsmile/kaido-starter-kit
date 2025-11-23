@@ -10,11 +10,14 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Lab404\Impersonate\Models\Impersonate as ImpersonateTrait;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles, SoftDeletes, ImpersonateTrait;
+    use HasFactory, Notifiable, HasRoles, SoftDeletes, ImpersonateTrait, InteractsWithMedia;
 
     public function canImpersonate(): bool
     {
@@ -27,6 +30,27 @@ class User extends Authenticatable
             return false;
         }
         return true;
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatar')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->singleFile();
+
+        $this->addMediaCollection('attachments')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
+            ->useFallbackUrl(url('/images/placeholder.png'))
+            ->useFallbackPath(public_path('images/placeholder.png'));
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(160)
+            ->height(160)
+            ->format('webp')
+            ->nonQueued();
     }
 
     /**
