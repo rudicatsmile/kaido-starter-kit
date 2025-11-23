@@ -27,6 +27,9 @@ class RoleSeeder extends Seeder
         if ($superAdmin) {
             // Grant all existing permissions to super_admin
             $superAdmin->givePermissionTo(Permission::pluck('name')->all());
+            // Ensure impersonation permission exists and grant it
+            $impersonate = Permission::firstOrCreate(['name' => 'users.impersonate', 'guard_name' => 'web']);
+            $superAdmin->givePermissionTo($impersonate);
         }
 
         $user = User::where('email', 'test@example.com')->first();

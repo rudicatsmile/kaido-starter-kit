@@ -7,6 +7,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
+use STS\FilamentImpersonate\Actions\Impersonate as ImpersonatePageAction;
 
 class EditUser extends EditRecord
 {
@@ -15,6 +16,7 @@ class EditUser extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            ImpersonatePageAction::make()->record($this->getRecord()),
             DeleteAction::make(),
             ForceDeleteAction::make(),
             RestoreAction::make(),

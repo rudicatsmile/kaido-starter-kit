@@ -8,11 +8,26 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Lab404\Impersonate\Models\Impersonate as ImpersonateTrait;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles, SoftDeletes;
+    use HasFactory, Notifiable, HasRoles, SoftDeletes, ImpersonateTrait;
+
+    public function canImpersonate(): bool
+    {
+        return $this->hasRole('super_admin') || $this->can('users.impersonate');
+    }
+
+    public function canBeImpersonated(): bool
+    {
+        if ($this->hasRole('super_admin')) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * The attributes that are mass assignable.

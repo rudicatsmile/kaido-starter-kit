@@ -11,6 +11,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
+use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UsersTable
 {
@@ -35,6 +36,9 @@ class UsersTable
             ])
             ->recordActions([
                 EditAction::make(),
+                Impersonate::make()
+                    ->guard('web')
+                    ->redirectTo('/'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
