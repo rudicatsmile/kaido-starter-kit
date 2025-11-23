@@ -9,8 +9,7 @@ file:d:\catatan\notes\Laravel\Vibe November 2025\kaido-starter-kit\docs\plan\01-
 ## Dependencies
 
 -   Laravel 10+ with default auth guards configured
--   Filament v3
--   Mailer configured for password reset emails
+-   Filament v4
 
 ## Implementation Steps
 

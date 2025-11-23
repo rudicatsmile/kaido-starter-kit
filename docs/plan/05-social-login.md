@@ -10,7 +10,7 @@ file:d:\catatan\notes\Laravel\Vibe November 2025\kaido-starter-kit\docs\plan\05-
 
 -   `laravel/socialite`
 -   Filament Socialite plugin (e.g., `pxlrbt/filament-socialite`)
--   Filament v3
+-   Filament v4
 
 ## Implementation Steps
 
