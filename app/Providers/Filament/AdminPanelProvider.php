@@ -20,6 +20,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use DutchCodingCompany\FilamentSocialite\FilamentSocialitePlugin;
+use DutchCodingCompany\FilamentSocialite\Provider as SocialProvider;
+use Laravel\Socialite\Contracts\User as SocialiteUserContract;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -66,6 +69,19 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: false,
                         slug: 'my-profile',
                     ),
+                FilamentSocialitePlugin::make()
+                    ->providers([
+                        SocialProvider::make('google')->label('Google'),
+                        SocialProvider::make('github')->label('GitHub'),
+                    ])
+                    ->registration(true)
+                    ->createUserUsing(function (string $provider, SocialiteUserContract $oauthUser, FilamentSocialitePlugin $plugin) {
+                        return $plugin->getUserModelClass()::create([
+                            'name' => $oauthUser->getName() ?: $oauthUser->getNickname() ?: $oauthUser->getEmail(),
+                            'email' => $oauthUser->getEmail(),
+                            'password' => bcrypt(str()->random(32)),
+                        ]);
+                    }),
             ])
             ->authMiddleware([
                 Authenticate::class,
