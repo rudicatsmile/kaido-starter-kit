@@ -9,7 +9,7 @@ file:d:\catatan\notes\Laravel\Vibe November 2025\kaido-starter-kit\docs\plan\06-
 ## Dependencies
 
 -   `spatie/laravel-medialibrary`
--   Filament v3 with Spatie Media Library form components
+-   Filament v4 with Spatie Media Library form components
 
 ## Implementation Steps
 

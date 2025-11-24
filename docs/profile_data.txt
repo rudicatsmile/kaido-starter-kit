@@ -1,0 +1,181 @@
+EXTENSIONS_START
+1yib.rust-bundle
+4ops.terraform
+aaron-bond.better-comments
+ahinkle.laravel-model-snippets
+alexisvt.flutter-snippets
+arbitraer.laravel-blade-additional-snippets
+arifbudimanar.arifcode-theme
+arifbudimanar.arifcode-theme-exclusive
+arifbudimanar.arifcode-theme-windows
+arifbudimanar.better-laravel-extension-pack
+austenc.laravel-blade-spacer
+bierner.markdown-checkbox
+bierner.markdown-preview-github-styles
+blaugold.melos-code
+bmewburn.vscode-intelephense-client
+bradlc.vscode-tailwindcss
+christian-kohler.npm-intellisense
+christian-kohler.path-intellisense
+cierra.livewire-vscode
+codingyu.laravel-goto-view
+coenraads.bracket-pair-colorizer-2
+continue.continue
+csstools.postcss
+cweijan.dbclient-jdbc
+cweijan.vscode-mysql-client2
+damms005.devdb
+dansysanalyst.pest-snippets
+dart-code.dart-code
+dart-code.flutter
+dbaeumer.vscode-eslint
+denyocr.flutter-hyper-extension
+docker.docker
+dosenngoding.dosenngoding-php-laravel-extension-pack
+dsznajder.es7-react-js-snippets
+dustypomerleau.rust-syntax
+ecmel.vscode-html-css
+editorconfig.editorconfig
+esbenp.prettier-vscode
+felixangelov.bloc
+formulahendry.auto-rename-tag
+formulahendry.code-runner
+georgykurian.laravel-ide-helper
+get-snippets.get-snippets
+github.copilot
+github.copilot-chat
+github.github-vscode-theme
+github.vscode-github-actions
+glitchbl.laravel-create-view
+golang.go
+gquittet.vscode-better-vuejs-extension-pack
+hashicorp.terraform
+heybourn.headwind
+hirantha.json-to-dart
+hollowtree.vue-snippets
+humao.rest-client
+humy2833.ftp-simple
+hzgood.dart-data-class-generator
+ihunte.laravel-blade-wrapper
+jeroen-meijer.pubspec-assist
+junstyle.php-cs-fixer
+kennylong.kubernetes-yaml-formatter
+kevinrose.vsc-python-indent
+lennardv.livewire-goto-updated
+m1guelpf.better-pest
+marscode.marscode-extension
+mehedidracula.php-namespace-resolver
+mhutchie.git-graph
+mikestead.dotenv
+mrchetan.phpstorm-parameter-hints-in-vscode
+mrmlnc.vscode-duplicate
+ms-azuretools.vscode-containers
+ms-azuretools.vscode-docker
+ms-kubernetes-tools.vscode-kubernetes-tools
+ms-playwright.playwright
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-python.vscode-python-envs
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-wsl
+ms-vscode.vscode-typescript-next
+muath-ye.composer-intelephense
+naoray.laravel-goto-components
+nash.awesome-flutter-snippets
+nhedger.inertia
+octref.vetur
+onecentlin.laravel-blade
+onecentlin.laravel5-snippets
+ow.vscode-subword-navigation
+pcbowers.alpine-intellisense
+pgl.laravel-jump-controller
+phiter.phpstorm-snippets
+pkief.material-icon-theme
+rangav.vscode-thunder-client
+redhat.vscode-yaml
+rettimo.nextjs-vscode-snippets
+rexshi.phpdoc-comment-vscode-plugin
+rodrigovallades.es7-react-js-snippets
+rust-lang.rust-analyzer
+ryannaddy.laravel-artisan
+shufo.vscode-blade-formatter
+small.php-ci
+sonarsource.sonarlint-vscode
+svelte.svelte-vscode
+tim-koehler.helm-intellisense
+tyriar.lorem-ipsum
+usernamehw.errorlens
+vue.volar
+waderyan.gitblame
+wmaurer.change-case
+xdebug.php-debug
+zobo.php-intellisense
+EXTENSIONS_END
+SETTINGS_START
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1763619988377,
+  "workbench.iconTheme": "material-icon-theme",
+  "errorLens.enabledDiagnosticLevels": [
+    "warning",
+    "info"
+  ],
+  "intelephense.environment.phpVersion": "7.4.0",
+  "intelephense.stubs": [
+    "mysql",
+    "curl",
+    "standard"
+  ],
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "laravel-pint.enable": true,
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "never",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "emmet.triggerExpansionOnTab": true
+  },
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "php-cs-fixer.rules": "",
+  "explorer.confirmDelete": false,
+  "database-client.autoSync": true,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "chat.commandCenter.enabled": false,
+  "svelte.enable-ts-plugin": true,
+  "continue.showInlineTip": false,
+  "geminicodeassist.project": "",
+  "bitoAI.codeCompletion.enableAutoCompletion": true,
+  "bitoAI.codeCompletion.enableCommentToCode": true,
+  "bitoAI.appearance.fontSize (Match with IDE Font)": false,
+  "editor.inlineSuggest.showToolbar": "always",
+  "Codegeex.License": "",
+  "Codegeex.Privacy": true,
+  "rust-analyzer.workspace.discoverConfig": null,
+  "supermaven.enable": {
+    "*": false
+  },
+  "trae.chatLanguage": "en",
+  "trae.codeCompletionPro": {
+    "enableCodeCompletionPro": true
+  },
+  "editor.mouseWheelScrollSensitivity": 0.3,
+  "workbench.list.mouseWheelScrollSensitivity": 0.5
+}
+SETTINGS_END
